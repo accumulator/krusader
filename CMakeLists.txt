@@ -57,6 +57,9 @@ if (CXX_SUPPORTS_NO_DEPRECATED_DECLARATIONS)
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual")
 endif ()
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+
 add_definitions(${QT5_DEFINITIONS} ${Plasma_DEFINITIONS})
 add_definitions( "-DKRARC_ENABLED" )
 
