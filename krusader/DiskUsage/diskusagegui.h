@@ -31,8 +31,8 @@
 #ifndef DISKUSAGEGUI_H
 #define DISKUSAGEGUI_H
 
-#include <QtGui/QLayout>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QToolButton>
 #include <QtGui/QResizeEvent>
 
 #include <KUrl>

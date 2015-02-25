@@ -32,7 +32,7 @@
 #include "kgpanel.h"
 #include "../defaults.h"
 #include "../Dialogs/krdialogs.h"
-#include <QtGui/QTabWidget>
+#include <QtWidgets/QTabWidget>
 #include <QFrame>
 #include <QGridLayout>
 #include <QLabel>

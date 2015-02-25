@@ -22,6 +22,8 @@
 #include <klocale.h>
 #include <QtDebug>
 #include <QtAlgorithms>
+
+#include <KDE/KGlobal>
 #include "../VFS/krpermhandler.h"
 #include "../defaults.h"
 #include "../krglobal.h"

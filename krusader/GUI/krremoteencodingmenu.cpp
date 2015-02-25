@@ -19,6 +19,7 @@
 
 #include "krremoteencodingmenu.h"
 
+#include <KDE/KIcon>
 #include <klocale.h>
 #include <kactioncollection.h>
 #include <kmenu.h>
@@ -108,27 +109,27 @@ void KrRemoteEncodingMenu::loadSettings()
     settingsLoaded = true;
     encodingNames = KGlobal::charsets()->descriptiveEncodingNames();
 
-    KMenu *kmenu = menu();
-    disconnect(kmenu, SIGNAL(triggered(QAction *)), this, SLOT(slotTriggered(QAction *)));
-    connect(kmenu, SIGNAL(triggered(QAction *)), this, SLOT(slotTriggered(QAction *)));
-    kmenu->clear();
+    QMenu *qmenu = menu();
+    disconnect(qmenu, SIGNAL(triggered(QAction *)), this, SLOT(slotTriggered(QAction *)));
+    connect(qmenu, SIGNAL(triggered(QAction *)), this, SLOT(slotTriggered(QAction *)));
+    qmenu->clear();
 
     QStringList::ConstIterator it;
     int count = 0;
     QAction *act;
 
     for (it = encodingNames.constBegin(); it != encodingNames.constEnd(); ++it) {
-        act = kmenu->addAction(*it);
+        act = qmenu->addAction(*it);
         act->setData(QVariant(++count));
         act->setCheckable(true);
     }
-    kmenu->addSeparator();
+    qmenu->addSeparator();
 
-    act = kmenu->addAction(i18n("Reload"));
+    act = qmenu->addAction(i18n("Reload"));
     act->setCheckable(true);
     act->setData(QVariant(-1));
 
-    act = kmenu->addAction(i18nc("Default encoding", "Default"));
+    act = qmenu->addAction(i18nc("Default encoding", "Default"));
     act->setCheckable(true);
     act->setData(QVariant(-2));
 }

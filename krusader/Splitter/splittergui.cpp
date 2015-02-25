@@ -38,6 +38,7 @@
 #include <kglobal.h>
 #include <kdebug.h>
 
+#include <KDE/KIcon>
 #include <QDoubleSpinBox>
 #include <QValidator>
 #include <QLineEdit>

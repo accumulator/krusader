@@ -34,8 +34,10 @@
 #define KRSLOTS_H
 
 #include <QtCore/QObject>
+
+#include <KDE/KUrl>
 #include <kprocess.h>
-#include <kio/netaccess.h>
+//#include <kio/netaccess.h>
 #include "krglobal.h"
 
 class KrMainWindow;
@@ -58,9 +60,9 @@ public:
 public slots:
     void processHasExited() {
         if (!tmp1.isEmpty())
-            KIO::NetAccess::removeTempFile(tmp1);
+            //KIO::NetAccess::removeTempFile(tmp1);
         if (!tmp2.isEmpty())
-            KIO::NetAccess::removeTempFile(tmp2);
+            //KIO::NetAccess::removeTempFile(tmp2);
         deleteLater();
     }
 };

@@ -23,7 +23,7 @@
 #include "abstractpanelmanager.h"
 
 #include <qwidget.h>
-#include <QtGui/QLayout>
+#include <QtWidgets/QLayout>
 #include <QGridLayout>
 #include <QHBoxLayout>
 

@@ -21,7 +21,7 @@
 KIsoDirectory::KIsoDirectory(KArchive* archive, const QString& name, int access,
                              int date, int adate, int cdate, const QString& user, const QString& group,
                              const QString& symlink) :
-        KArchiveDirectory(archive, name, access, date, user, group, symlink)
+        KArchiveDirectory(archive, name, access, QDateTime::fromTime_t(date), user, group, symlink)
 {
 
 

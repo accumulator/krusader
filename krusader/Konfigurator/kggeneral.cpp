@@ -30,7 +30,7 @@
 
 #include "kggeneral.h"
 
-#include <QtGui/QLabel>
+#include <QtWidgets/QLabel>
 #include <QtGui/QFontMetrics>
 #include <QGridLayout>
 #include <QFrame>
@@ -299,7 +299,7 @@ void KgGeneral::createGeneralTab()
 void KgGeneral::applyTempDir(QObject *obj, QString cls, QString name)
 {
     KonfiguratorURLRequester *urlReq = (KonfiguratorURLRequester *)obj;
-    QString value = QDir(urlReq->url().prettyUrl()).path();
+    QString value = urlReq->url().toDisplayString();
 
     KConfigGroup(krConfig, cls).writeEntry(name, value);
 }

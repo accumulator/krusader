@@ -15,4 +15,6 @@ set(Konfigurator_SRCS
     krresulttabledialog.cpp
     searchobject.cpp)
 
-kde4_add_library(Konfigurator STATIC ${Konfigurator_SRCS})
+add_library(Konfigurator STATIC ${Konfigurator_SRCS})
+
+target_link_libraries(Konfigurator KF5::Wallet)

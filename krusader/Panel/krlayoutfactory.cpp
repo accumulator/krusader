@@ -42,6 +42,7 @@ A
 #include <QVBoxLayout>
 #include <QResource>
 
+#include <KDE/KGlobal>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kcomponentdata.h>

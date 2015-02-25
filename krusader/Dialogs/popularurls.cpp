@@ -19,14 +19,15 @@
 
 #include "popularurls.h"
 
-#include <QtGui/QPushButton>
+#include <QtWidgets/QPushButton>
 #include <QGridLayout>
 #include <QtCore/QList>
 #include <qheaderview.h>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
 #include <QToolButton>
 
+#include <KDE/KTreeWidgetSearchLine>
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kiconloader.h>
@@ -290,7 +291,8 @@ PopularUrlsDlg::PopularUrlsDlg():
     QToolButton *btn = new QToolButton(widget);
     btn->setIcon(SmallIcon("edit-clear-locationbar-ltr"));
     search = new KTreeWidgetSearchLine(widget, urls);
-    search->setTrapReturnKey(true);
+    // KF5 TODO not found?
+    //search->setTrapReturnKey(true);
     QLabel *lbl = new QLabel(i18n("&Search:"), widget);
     lbl->setBuddy(search);
 

@@ -30,11 +30,11 @@
 
 #include "krtreewidget.h"
 #include "krstyleproxy.h"
-#include <QtGui/QApplication>
-#include <QtGui/QStyleOptionViewItem>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QStyleOptionViewItem>
 #include <QtGui/QContextMenuEvent>
-#include <QtGui/QHeaderView>
-#include <QtGui/QToolTip>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QToolTip>
 
 KrTreeWidget::KrTreeWidget(QWidget * parent) : QTreeWidget(parent), _inResize(false)
 {
@@ -44,7 +44,7 @@ KrTreeWidget::KrTreeWidget(QWidget * parent) : QTreeWidget(parent), _inResize(fa
 
     _stretchingColumn = -1;
 
-    setStyle(new KrStyleProxy());
+    //setStyle(new KrStyleProxy());
 }
 
 bool KrTreeWidget::event(QEvent * event)

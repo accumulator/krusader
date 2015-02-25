@@ -28,6 +28,8 @@
 #include <KDialog>
 #include <KTextEdit>
 
+#include <KDE/KUrl>
+
 #include "kractionbase.h"
 
 class UserActionProperties;

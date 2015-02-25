@@ -30,18 +30,18 @@
 
 #include "packguibase.h"
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QComboBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QToolButton>
-#include <QtGui/QLayout>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QLayout>
 #include <QtCore/QVariant>
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
 #include <qspinbox.h>
-#include <QtGui/QSlider>
+#include <QtWidgets/QSlider>
 #include <QHBoxLayout>
 #include <QGridLayout>
 #include <QFrame>

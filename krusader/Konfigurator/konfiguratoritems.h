@@ -33,18 +33,18 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QCheckBox>
 #include <qspinbox.h>
-#include <QtGui/QPushButton>
-#include <QtGui/QRadioButton>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtCore/QList>
-#include <QtGui/QLineEdit>
+#include <QtWidgets/QLineEdit>
 #include <QPixmap>
-#include <QtGui/QBoxLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QLabel>
 #include <qfont.h>
-#include <QtGui/QToolButton>
-#include <QtGui/QComboBox>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QComboBox>
 
 #include <kurlrequester.h>
 #include <kfontdialog.h>

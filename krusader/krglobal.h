@@ -35,6 +35,7 @@
 #include <kconfiggroup.h>
 #include <kshortcut.h>
 #include <kdebug.h>
+#include <KIconThemes/KIconLoader>
 
 #define krOut kDebug()
 

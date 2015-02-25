@@ -34,7 +34,7 @@
 #include <QtCore/QObject>
 #include <kprocess.h>
 #include <kurl.h>
-#include <kwallet.h>
+#include <KWallet/KWallet>
 #include <unistd.h> // for setsid, see Kr7zEncryptionChecker::setupChildProcess
 #include <signal.h> // for kill
 

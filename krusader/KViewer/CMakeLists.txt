@@ -5,4 +5,6 @@ set(KViewer_SRCS
     diskusageviewer.cpp
     lister.cpp)
 
-kde4_add_library(KViewer STATIC ${KViewer_SRCS})
+add_library(KViewer STATIC ${KViewer_SRCS})
+
+target_link_libraries(KViewer KF5::KHtml)

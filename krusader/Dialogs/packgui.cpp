@@ -32,12 +32,12 @@
 #include <kfiledialog.h>
 #include "../krglobal.h"
 #include "../defaults.h"
-#include <QtGui/QLineEdit>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QCheckBox>
 #include <QtCore/QStringList>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QComboBox>
 #include <khistorycombobox.h>
 
 #define PS(x) lst.contains(x)>0

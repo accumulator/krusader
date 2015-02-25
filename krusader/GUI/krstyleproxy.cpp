@@ -32,7 +32,7 @@
 #include <QtGui/QPen>
 #include <QtGui/QPainter>
 #include <QStyleOptionViewItem>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 
 void KrStyleProxy::drawComplexControl(ComplexControl control, const QStyleOptionComplex * option, QPainter * painter, const QWidget * widget) const
 {
@@ -96,7 +96,6 @@ QRect KrStyleProxy::itemPixmapRect(const QRect & rectangle, int alignment, const
 {
     return QApplication::style()->itemPixmapRect(rectangle, alignment, pixmap);
 }
-
 QRect KrStyleProxy::itemTextRect(const QFontMetrics & metrics, const QRect & rectangle, int alignment, bool enabled, const QString & text) const
 {
     return QApplication::style()->itemTextRect(metrics, rectangle, alignment, enabled, text);

@@ -33,8 +33,8 @@
 #define KFNKEYS_H
 
 #include <qwidget.h>
-#include <QtGui/QLayout>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QPushButton>
 #include <QGridLayout>
 
 class FileManagerWindow;

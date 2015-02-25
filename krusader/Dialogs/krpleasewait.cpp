@@ -31,8 +31,8 @@
 #include "krpleasewait.h"
 #include <QtCore/QTimer>
 #include <QtCore/QDateTime>
-#include <QtGui/QApplication>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QPushButton>
 #include <QLabel>
 #include <QCloseEvent>
 #include <QProgressBar>

@@ -36,6 +36,8 @@
 #include <QGridLayout>
 #include <QLabel>
 
+#include <KDE/KPushButton>
+
 #include "konfiguratorpage.h"
 #include "../GUI/krtreewidget.h"
 

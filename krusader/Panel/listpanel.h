@@ -36,11 +36,11 @@
 #include <kfileitem.h>
 #include <kurl.h>
 #include <qwidget.h>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
 #include <QtCore/QString>
 #include <QtGui/QPixmap>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 #include <QProgressBar>
 #include <QtCore/QDir>
 #include <qpixmapcache.h>

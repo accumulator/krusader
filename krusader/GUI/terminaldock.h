@@ -20,8 +20,8 @@
 #define TERMINALDOCK_H
 
 #include <kde_terminal_interface.h>
-#include <kparts/part.h>
 
+#include <KParts/Part>
 #include <QHBoxLayout>
 #include <QWidget>
 #include <QEvent>

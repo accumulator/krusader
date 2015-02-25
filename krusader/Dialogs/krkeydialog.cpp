@@ -18,10 +18,12 @@
 
 #include "krkeydialog.h"
 
-#include <QtGui/QLayout>
+#include <QtWidgets/QLayout>
 #include <QtCore/QTextStream>
+
+#include <KDE/KDialog>
 #include <klocale.h>
-#include <kpushbutton.h>
+#include <KDE/KPushButton>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <kglobal.h>
@@ -44,21 +46,21 @@ KrKeyDialog::KrKeyDialog(QWidget * parent) : KShortcutsDialog(KShortcutsEditor::
     // HACK This fetches the layout of the buttonbox from KDialog, although it is not accessable with KDialog's API
     // None the less it's quite safe to use since this implementation hasn't changed since KDE-3.3 (I haven't looked at earlier
     // versions since we don't support them) and now all work is done in KDE-4.
-    QWidget* buttonBox = qobject_cast<QWidget*>(button(KDialog::Ok)->parent());
-    QBoxLayout* buttonBoxLayout = qobject_cast<QBoxLayout*>(buttonBox->layout());
+    //QWidget* buttonBox = qobject_cast<QWidget*>(button(KDialog::Ok)->parent());
+    //QBoxLayout* buttonBoxLayout = qobject_cast<QBoxLayout*>(buttonBox->layout());
 
-    KPushButton* importButton = new KPushButton(i18n("Import Shortcuts"), buttonBox);
+    KPushButton* importButton = new KPushButton(i18n("Import Shortcuts"), parent);
     importButton->setWhatsThis(i18n("Load a keybinding profile, e.g., total_commander.keymap"));
-    buttonBoxLayout->insertWidget(1, importButton);   // the defaults-button should stay on position 0
+    //buttonBoxLayout->insertWidget(1, importButton);   // the defaults-button should stay on position 0
     connect(importButton, SIGNAL(clicked()), SLOT(slotImportShortcuts()));
 
-    KPushButton* exportButton = new KPushButton(i18n("Export Shortcuts"), buttonBox);
+    KPushButton* exportButton = new KPushButton(i18n("Export Shortcuts"), parent);
     exportButton->setWhatsThis(i18n("Save current keybindings in a keymap file."));
-    buttonBoxLayout->insertWidget(2, exportButton);
+    //buttonBoxLayout->insertWidget(2, exportButton);
     connect(exportButton, SIGNAL(clicked()), SLOT(slotExportShortcuts()));
 
     // Also quite HACK 'isch but unfortunately KKeyDialog don't giveus access to this widget
-    _chooser = qobject_cast<KShortcutsEditor*>(mainWidget());
+    //_chooser = qobject_cast<KShortcutsEditor*>(mainWidget());
 
     configure(true /* SaveSettings */);   // this runs the dialog
 }

@@ -20,9 +20,9 @@
 #include "krvfsmodel.h"
 
 #include <QApplication>
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 #include <QtGui/QPainter>
-#include <QtGui/QLineEdit>
+#include <QtWidgets/QLineEdit>
 
 KrInterViewItemDelegate::KrInterViewItemDelegate(QObject *parent) :
         QItemDelegate(parent), _currentlyEdited(-1), _dontDraw(false) {}

@@ -18,6 +18,8 @@
 
 #include "terminaldock.h"
 
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QShortcut>
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QKeyEvent>
@@ -28,6 +30,7 @@
 #include <QString>
 #include <QObject>
 
+#include <KConfigGui/KStandardShortcut>
 #include <kde_terminal_interface.h>
 #include <kparts/part.h>
 #include <kpluginloader.h>
@@ -136,17 +139,18 @@ bool TerminalDock::applyShortcuts(QKeyEvent * ke)
 {
     int pressedKey = (ke->key() | ke->modifiers());
 
-    if (krToggleTerminal->shortcut().contains(pressedKey)) {
-        krToggleTerminal->activate(QAction::Trigger);
-        return true;
-    }
+    // KF5 TODO removed
+    //if (krToggleTerminal->shortcut().contains(pressedKey)) {
+    //    krToggleTerminal->activate(QAction::Trigger);
+    //    return true;
+    //}
 
-    if (krSwitchFullScreenTE->shortcut().contains(pressedKey)) {
-        krSwitchFullScreenTE->activate(QAction::Trigger);
-        return true;
-    }
+    //if (krSwitchFullScreenTE->shortcut().contains(pressedKey)) {
+    //    krSwitchFullScreenTE->activate(QAction::Trigger);
+    //    return true;
+    //}
 
-    if (_mainWindow->listPanelActions()->actPaste->shortcut().contains(pressedKey)) {
+    if (_mainWindow->listPanelActions()->actPaste->shortcut().matches(pressedKey)) {
         QString text = QApplication::clipboard()->text();
         if (! text.isEmpty()) {
             text.replace('\n', '\r');

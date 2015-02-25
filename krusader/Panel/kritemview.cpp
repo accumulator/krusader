@@ -42,7 +42,7 @@ KrItemView::KrItemView(QWidget *parent, KrViewInstance &instance, KConfig *cfg) 
     KConfigGroup grpSvr(_config, "Look&Feel");
     _viewFont = grpSvr.readEntry("Filelist Font", _FilelistFont);
 
-    setStyle(new KrStyleProxy());
+    //setStyle(new KrStyleProxy());
     setItemDelegate(new KrInterViewItemDelegate());
     setMouseTracking(true);
     setAcceptDrops(true);

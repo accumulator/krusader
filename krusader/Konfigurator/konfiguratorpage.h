@@ -31,9 +31,9 @@
 #ifndef KONFIGURATORPAGE_H
 #define KONFIGURATORPAGE_H
 
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
 #include <QGridLayout>
 #include <QScrollArea>
 

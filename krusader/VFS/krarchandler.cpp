@@ -38,8 +38,9 @@
 #include <kmessagebox.h>
 #include <KPasswordDialog>
 #include <kstandarddirs.h>
-#include <ktar.h>
+#include <KArchive/KTar>
 #include <kio/global.h>
+#include <KWallet/KWallet>
 
 #include "../krusader.h"
 #include "../krglobal.h"

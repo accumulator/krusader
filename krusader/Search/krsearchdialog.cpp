@@ -42,12 +42,13 @@
 #include <QDrag>
 #include <QMimeData>
 #include <QtGui/QResizeEvent>
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QCloseEvent>
-#include <QtGui/QTabWidget>
+#include <QtWidgets/QTabWidget>
 
+#include <KDE/KIcon>
 #include <kinputdialog.h>
 #include <kmessagebox.h>
 #include <kmenu.h>

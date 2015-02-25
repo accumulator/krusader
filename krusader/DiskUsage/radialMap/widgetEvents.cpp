@@ -27,6 +27,8 @@
 #include <kio/deletejob.h>
 #include <kio/jobuidelegate.h>
 #include <klocale.h>
+
+#include <KDE/KIcon>
 #include <kmessagebox.h> //::mousePressEvent()
 #include <kmenu.h>  //::mousePressEvent()
 #include <krun.h>        //::mousePressEvent()
@@ -202,7 +204,9 @@ RadialMap::Widget::mousePressEvent(QMouseEvent *e)
 
                 if (userIntention == KMessageBox::Continue) {
                     KIO::Job *job = KIO::del(url);
-                    job->ui()->setWindow(this);
+		    KIO::JobUiDelegate *jobui = new KIO::JobUiDelegate();
+		    jobui->setJob(job);
+                    jobui->setWindow(this);
                     connect(job, SIGNAL(result(KJob*)), SLOT(deleteJobFinished(KJob*)));
                     QApplication::setOverrideCursor(Qt::BusyCursor);
                 }

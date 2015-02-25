@@ -48,7 +48,7 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 #include <QMimeData>
 #include <QtCore/QTimer>
 #include <QtCore/QRegExp>
-#include <QtGui/QSplitter>
+#include <QtWidgets/QSplitter>
 #include <QtGui/QImage>
 #include <qtabbar.h>
 
@@ -110,7 +110,7 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 class ActionButton : public QToolButton
 {
 public:
-    ActionButton(QWidget *parent, ListPanel *panel, KAction *action, QString text = QString()) :
+    ActionButton(QWidget *parent, ListPanel *panel, QAction *action, QString text = QString()) :
             QToolButton(parent),  panel(panel), action(action) {
         setText(text);
         setAutoRaise(true);
@@ -126,7 +126,7 @@ protected:
     }
 
     ListPanel *panel;
-    KAction *action;
+    QAction *action;
 };
 
 
@@ -896,7 +896,7 @@ void ListPanel::handleDropOnView(QDropEvent *e, QWidget *widget)
     if (copyToDirInPanel) {
         dir = i->name();
     }
-    QWidget *notify = (!e->source() ? 0 : e->source());
+    QObject *notify = (!e->source() ? 0 : e->source());
     tempFiles->vfs_addFiles(&URLs, mode, notify, dir);
     if(KConfigGroup(krConfig, "Look&Feel").readEntry("UnselectBeforeOperation", _UnselectBeforeOperation)) {
         KrPanel *p = (dragFromThisPanel ? this : otherPanel());

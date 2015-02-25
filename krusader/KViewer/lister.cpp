@@ -36,23 +36,25 @@
 #include <QtCore/QDate>
 #include <QtCore/QTextCodec>
 #include <QtCore/QTextStream>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
 #include <QtGui/QPainter>
 #include <QtGui/QFontMetrics>
-#include <QtGui/QLineEdit>
-#include <QtGui/QPushButton>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QToolButton>
 #include <QtGui/QClipboard>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QProgressBar>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QProgressBar>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QScrollBar>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QMenu>
-#include <QtGui/QPrintDialog>
-#include <QtGui/QPrinter>
+#include <QtWidgets/QScrollBar>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QMenu>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
 
+#include <KDE/KIcon>
+#include <KParts/GUIActivateEvent>
 #include <kuiserverjobtracker.h>
 #include <KColorScheme>
 #include <KTemporaryFile>
@@ -1284,7 +1286,7 @@ void Lister::slotFileFinished(KJob *job)
     _tempFile->flush();
     if (job->error()) {   /* any error occurred? */
         KIO::TransferJob *kioJob = (KIO::TransferJob *)job;
-        KMessageBox::error(_textArea, i18n("Error reading file %1.", kioJob->url().pathOrUrl()));
+        KMessageBox::error(_textArea, i18n("Error reading file %1.", kioJob->url().toDisplayString()));
     }
     _downloading = false;
 }

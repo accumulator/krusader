@@ -20,7 +20,8 @@
 #include "krviewitem.h"
 #include "../VFS/krpermhandler.h"
 #include <klocale.h>
-#include <kmimetype.h>
+#include <KDE/KMimeType>
+#include <KDE/KGlobal>
 #include <sys/types.h>
 #include <time.h>
 #include <stdlib.h>
@@ -68,7 +69,7 @@ QString KrViewItem::description() const
     QString comment;
     KMimeType::Ptr mt = KMimeType::mimeType(_vf->vfile_getMime());
     if (mt)
-        comment = mt->comment(_vf->vfile_getUrl());
+        comment = mt->comment(/*_vf->vfile_getUrl()*/);
     QString myLinkDest = _vf->vfile_getSymDest();
     KIO::filesize_t mySize = _vf->vfile_getSize();
 

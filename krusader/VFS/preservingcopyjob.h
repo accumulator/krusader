@@ -38,6 +38,7 @@
 
 #include <kio/jobclasses.h>
 #include <kio/copyjob.h>
+#include <KDE/KUrl>
 
 typedef enum {
     PM_NONE          = 0,

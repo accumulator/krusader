@@ -34,7 +34,7 @@
 #define KRUSADERSTATUS_H
 
 // QT includes
-#include <QtGui/QLabel>
+#include <QtWidgets/QLabel>
 #include <qwidget.h>
 
 // KDE includes

@@ -35,9 +35,9 @@
 
 // QT includes
 #include <qwidget.h>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QToolButton>
 #include <QKeyEvent>
 
 // KDE includes

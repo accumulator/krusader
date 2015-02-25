@@ -33,7 +33,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMessageBox>
 #include <QGridLayout>
 #include <QFrame>
 #include <QLabel>
@@ -43,7 +43,7 @@
 #include <QtGui/QFontMetrics>
 #include <QtGui/QImage>
 #include <QtCore/QStringList>
-#include <QtGui/QSizePolicy>
+#include <QtWidgets/QSizePolicy>
 
 #include <kstandarddirs.h>
 #include <klocale.h>

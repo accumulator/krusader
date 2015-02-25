@@ -25,10 +25,13 @@
 #include <QList>
 #include <QKeyEvent>
 #include <QFocusEvent>
-#include <kparts/mainwindow.h>
-#include <kparts/partmanager.h>
-#include <kparts/browserextension.h>
 #include <QtCore/QPointer>
+
+#include <KDE/KUrl>
+#include <KDE/KAction>
+#include <KParts/MainWindow>
+#include <KParts/PartManager>
+#include <KParts/BrowserExtension>
 #include <ktabwidget.h>
 #include <ktemporaryfile.h>
 
@@ -78,7 +81,7 @@ public slots:
 
 protected:
     virtual bool queryClose();
-    virtual void windowActivationChange(bool oldActive);
+//     virtual void windowActivationChange(bool oldActive);
     virtual void resizeEvent(QResizeEvent *e);
 
     virtual void focusInEvent(QFocusEvent *) {
@@ -113,8 +116,8 @@ private:
 
     QAction *detachAction;
 
-    KAction *printAction;
-    KAction *copyAction;
+    QAction *printAction;
+    QAction *copyAction;
 
     QAction *tabClose;
     QAction *closeAct;

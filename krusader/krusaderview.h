@@ -38,10 +38,10 @@
 #include <kparts/part.h>
 
 // QT includes
-#include <QtGui/QLayout>
-#include <QtGui/QSplitter>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QSplitter>
 #include <qwidget.h>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QPushButton>
 #include <QGridLayout>
 #include <QEvent>
 

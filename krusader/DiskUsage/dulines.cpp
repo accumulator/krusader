@@ -40,11 +40,11 @@
 #include <QtGui/QPainter>
 #include <QtGui/QFontMetrics>
 #include <QtCore/QTimer>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <qheaderview.h>
 #include <kmenu.h>
 #include <QItemDelegate>
-#include <QtGui/QToolTip>
+#include <QtWidgets/QToolTip>
 
 class DULinesItemDelegate : public QItemDelegate
 {

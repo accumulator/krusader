@@ -9,16 +9,17 @@
 
 #include "kimagefilepreview.h"
 
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QComboBox>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QCheckBox>
 #include <QtCore/QTimer>
 #include <QPixmap>
 #include <QResizeEvent>
 #include <QVBoxLayout>
 #include <QFrame>
 
+#include <KDE/KDialog>
 #include <kapplication.h>
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -63,6 +64,11 @@ void KrusaderImageFilePreview::showPreview()
 }
 
 // called via KPreviewWidgetBase interface
+void KrusaderImageFilePreview::showPreview(const QUrl& url)
+{
+    showPreview(url, false);
+}
+
 void KrusaderImageFilePreview::showPreview(const KUrl& url)
 {
     showPreview(url, false);
@@ -107,7 +113,7 @@ QSize KrusaderImageFilePreview::sizeHint() const
 
 KIO::PreviewJob * KrusaderImageFilePreview::createJob(const KUrl& url, int w, int h)
 {
-#if KDE_IS_VERSION(4,7,0)
+/*#if KDE_IS_VERSION(4,7,0)
     KFileItemList fileItemList;
     fileItemList.append(KFileItem(KFileItem::Unknown,KFileItem::Unknown, url, true));
     QStringList allPlugins = KIO::PreviewJob::availablePlugins();
@@ -116,11 +122,11 @@ KIO::PreviewJob * KrusaderImageFilePreview::createJob(const KUrl& url, int w, in
         job->setOverlayIconSize(0);
         job->setScaleType(KIO::PreviewJob::Scaled);
     return job;
-#else
+#else*/
     KUrl::List urls;
     urls.append(url);
     return KIO::filePreview(urls, w, h, 0, 0, true, false);	
-#endif
+//#endif
 }
 
 void KrusaderImageFilePreview::gotPreview(const KFileItem& item, const QPixmap& pm)

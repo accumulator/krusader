@@ -4,4 +4,6 @@ set(BookMan_SRCS
     krbookmarkhandler.cpp
     kraddbookmarkdlg.cpp)
 
-kde4_add_library(BookMan STATIC ${BookMan_SRCS})
+add_library(BookMan STATIC ${BookMan_SRCS})
+
+target_link_libraries(BookMan KF5::Wallet)

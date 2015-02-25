@@ -21,8 +21,8 @@
 #ifndef NEWFTPGUI_H
 #define NEWFTPGUI_H
 
-#include <QtGui/QLabel>
-#include <QtGui/QSpinBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QSpinBox>
 
 #include <KDialog>
 #include <KComboBox>

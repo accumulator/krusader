@@ -29,6 +29,7 @@
 #include <kdirlister.h>
 #include <kmenu.h>
 
+#include <KDE/KGlobal>
 #include "krinterviewitem.h"
 #include "krviewfactory.h"
 #include "krinterviewitemdelegate.h"
@@ -64,7 +65,7 @@ KrInterDetailedView::KrInterDetailedView(QWidget *parent, KrViewInstance &instan
     setAllColumnsShowFocus(true);
     setUniformRowHeights(true);
 
-    setStyle(new KrStyleProxy());
+    //setStyle(new KrStyleProxy());
     setItemDelegate(new KrInterViewItemDelegate());
     setMouseTracking(true);
     setAcceptDrops(true);

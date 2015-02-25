@@ -31,7 +31,7 @@
 #include "splitter.h"
 #include "../VFS/vfs.h"
 
-#include <QtGui/QLayout>
+#include <QtWidgets/QLayout>
 #include <QtCore/QFileInfo>
 #include <kdebug.h>
 #include <klocale.h>

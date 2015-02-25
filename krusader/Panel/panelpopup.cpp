@@ -32,15 +32,15 @@
 #include "../KViewer/panelviewer.h"
 #include "../KViewer/diskusageviewer.h"
 
-#include <QtGui/QButtonGroup>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QToolButton>
 #include <QDropEvent>
 #include <QGridLayout>
 #include <QFrame>
 #include <QMenu>
 #include <QtGui/QCursor>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
 #include <QtCore/QDir>
 #include <QHeaderView>
 #include <QSplitter>

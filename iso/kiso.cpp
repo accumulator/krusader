@@ -37,7 +37,7 @@
 #include <kde_file.h>
 #include <KDebug>
 #include <KUrl>
-#include <KMimeType>
+#include <KDE/KMimeType>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KFilterBase>
@@ -119,9 +119,9 @@ KIso::KIso(const QString& filename, const QString & _mimetype)
     QString mimetype(_mimetype);
     bool forced = true;
     if (mimetype.isEmpty()) {
-        KSharedPtr<KMimeType> result = KMimeType::findByFileContent(filename);
-        if (result)
-            mimetype = result->name();
+        //KSharedPtr<KMimeType> result = KMimeType::findByFileContent(filename);
+        if (KMimeType::findByFileContent(filename))
+            mimetype = KMimeType::findByFileContent(filename)->name();
 
         kDebug() << "KIso::KIso mimetype=" << mimetype << endl;
 
@@ -306,10 +306,11 @@ void KIso::addBoot(struct el_torito_boot_descriptor* bootdesc)
     QString path;
     KIsoFile *entry;
 
-    entry = new KIsoFile(this, "Catalog", dirent->permissions() & ~S_IFDIR,
+    path = "Catalog";
+    entry = new KIsoFile(this, path, dirent->permissions() & ~S_IFDIR,
                          dirent->date(), dirent->adate(), dirent->cdate(),
                          dirent->user(), dirent->group(), QString(),
-                         (long long)isonum_731(bootdesc->boot_catalog) << (long long)11, 2048);
+                         (long long)isonum_731(bootdesc->boot_catalog) << (long long)11, (long long)2048);
     dirent->addEntry(entry);
     if (!ReadBootTable(&readf, isonum_731(bootdesc->boot_catalog), &boot, this)) {
         i = 1;
@@ -471,17 +472,17 @@ bool KIso::writeSymLink(const QString &, const QString &, const QString &, const
     return false;
 }
 
-bool KIso::doWriteDir(const QString&, const QString&, const QString&, mode_t, time_t, time_t, time_t)
+bool KIso::doWriteDir(const QString&, const QString&, const QString&, mode_t, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime)
 {
     return false;
 }
 
-bool KIso::doWriteSymLink(const QString &, const QString &, const QString &, const QString &, mode_t, time_t, time_t, time_t)
+bool KIso::doWriteSymLink(const QString &, const QString &, const QString &, const QString &, mode_t, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime)
 {
     return false;
 }
 
-bool KIso::doPrepareWriting(const QString& , const QString& , const QString& , qint64, mode_t, time_t, time_t, time_t)
+bool KIso::doPrepareWriting(const QString& , const QString& , const QString& , qint64, mode_t, const QDateTime &atime, const QDateTime &mtime, const QDateTime &ctime)
 {
     return false;
 }

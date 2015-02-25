@@ -20,7 +20,7 @@
 #define MEDIABUTTON_H
 
 #include <qwidget.h>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 #include <QEvent>
 #include <QMenu>
 #include <kurl.h>

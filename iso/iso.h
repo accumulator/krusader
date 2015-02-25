@@ -23,6 +23,7 @@
 #define ISO_H
 
 #include <QByteArray>
+#include <KUrl>
 
 #include <kio/slavebase.h>
 #include <sys/types.h>

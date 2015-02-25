@@ -32,10 +32,10 @@
 #include "../krglobal.h"
 #include "../kicons.h"
 #include "../Filter/filtertabs.h"
-#include <QtGui/QComboBox>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QCheckBox>
 #include "../GUI/krlistwidget.h"
 #include <qspinbox.h>
 #include <qnamespace.h>

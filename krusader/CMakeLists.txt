@@ -1,8 +1,13 @@
 include_directories(${KDE4_INCLUDES})
 
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/session
+)
+
 configure_file(krusaderversion.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krusaderversion.h)
 
-find_package(LibKonq)
+#find_package(LibKonq)
 
 if(LIBKONQ_FOUND)
     message(STATUS "libkonq library found")
@@ -54,11 +59,13 @@ set(krusader_SRCS
     krusaderapp.cpp
     krtrashhandler.cpp)
 
-kde4_add_app_icon(krusader_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-krusader_user.png")
+# TODO KF5 port
+#kde4_add_app_icon(krusader_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/hi*-app-krusader_user.png")
 
-qt4_add_resources(krusader_RC_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/resources.qrc" )
+# TODO KF5 port
+#qt4_add_resources(krusader_RC_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/resources.qrc" )
 
-kde4_add_executable(krusader ${krusader_SRCS} ${krusader_RC_SRCS})
+add_executable(krusader ${krusader_SRCS} ${krusader_RC_SRCS})
 
 target_link_libraries(krusader
                       Panel
@@ -81,11 +88,27 @@ target_link_libraries(krusader
                       Filter
                       Dialogs
                       GUI
-                      ${KDE4_KPARTS_LIBS}
-                      ${KDE4_KDEUI_LIBS}
-                      ${KDE4_KFILE_LIBS}
-                      ${KDE4_KDECORE_LIBS}
-                      ${KDE4_SOLID_LIBS})
+                      Qt5::Core
+                      Qt5::DBus
+                      Qt5::Gui
+                      KF5::KDELibs4Support
+                      Qt5::Widgets
+                      KF5::Archive
+                      KF5::ConfigCore
+                      KF5::IconThemes
+                      KF5::KIOCore
+                      KF5::KIOFileWidgets
+                      KF5::KIOWidgets
+                      KF5::KIONTLM
+                      KF5::Notifications
+                      KF5::Parts
+                      KF5::Wallet
+                      KF5::WindowSystem )
+#                       ${KDE4_KPARTS_LIBS}
+#                       ${KDE4_KDEUI_LIBS}
+#                       ${KDE4_KFILE_LIBS}
+#                       ${KDE4_KDECORE_LIBS}
+#                       ${KDE4_SOLID_LIBS})
 
 if(ENABLE_SYNCHRONIZER)
     target_link_libraries( krusader Synchronizer )
@@ -111,4 +134,5 @@ install(FILES krusaderui.rc
               splash.png
         DESTINATION ${DATA_INSTALL_DIR}/krusader)
 
-kde4_install_icons( ${ICON_INSTALL_DIR} )
+# TODO KF5 port (change to ecm_install_icons)
+#kde4_install_icons( ${ICON_INSTALL_DIR} )

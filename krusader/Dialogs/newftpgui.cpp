@@ -22,10 +22,10 @@
 
 #include <QtCore/QStringList>
 #include <QtGui/QFont>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QSizePolicy>
-#include <QtGui/QWidget>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QSizePolicy>
+#include <QtWidgets/QWidget>
 #include <QEvent>
 
 #include <KConfigGroup>

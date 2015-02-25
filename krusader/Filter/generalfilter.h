@@ -31,12 +31,12 @@
 #ifndef GENERALFILTER_H
 #define GENERALFILTER_H
 
-#include <QtGui/QWidget>
-#include <QtGui/QLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QCheckBox>
-#include <QtGui/QLabel>
-#include <QtGui/QHBoxLayout>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QHBoxLayout>
 
 #include <KComboBox>
 #include <KShellCompletion>

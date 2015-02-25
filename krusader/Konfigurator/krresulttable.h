@@ -20,8 +20,8 @@
 #define KRRESULTTABLE_H
 
 #include <QtCore/QString>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
 #include <QtCore/QStringList>
 #include <QtCore/QList>
 #include <QGridLayout>

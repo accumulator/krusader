@@ -23,6 +23,7 @@
 #include "../krglobal.h"
 #include "../defaults.h"
 
+#include <KDE/KGlobal>
 #include <QApplication>
 
 #define CANCEL_TWO_CLICK_RENAME {_singleClicked = false;_renameTimer.stop();}

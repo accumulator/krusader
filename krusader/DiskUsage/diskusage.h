@@ -31,8 +31,8 @@
 #ifndef DISKUSAGE_H
 #define DISKUSAGE_H
 
-#include <QtGui/QDialog>
-#include <QtGui/QLabel>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
 #include <QtCore/QHash>
 #include <qstack.h>
 #include <QResizeEvent>
@@ -40,7 +40,7 @@
 #include <QKeyEvent>
 #include <QEvent>
 #include <qstackedwidget.h>
-#include <qscrollarea.h>
+#include <QtWidgets/QScrollArea>
 #include <QtCore/QTimer>
 
 #include <kurl.h>

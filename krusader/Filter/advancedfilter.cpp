@@ -34,15 +34,16 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QGridLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QGridLayout>
 #include <QtGui/QPixmap>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QSpinBox>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QSpinBox>
 
+#include <KDE/KGlobal>
 #include <KLocale>
 #include <KDebug>
 #include <KMessageBox>

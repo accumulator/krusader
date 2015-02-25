@@ -26,6 +26,7 @@
 #include <QPainter>
 #include <QFont>
 #include <QEvent>
+#include <QtWidgets/QStyleOption>
 
 class UrlRequester::PathLabel : public KSqueezedTextLabel
 {

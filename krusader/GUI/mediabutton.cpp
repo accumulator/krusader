@@ -24,6 +24,9 @@
 #include <QMouseEvent>
 #include <QEvent>
 
+#include <KDE/KIcon>
+#include <KDE/KGlobal>
+#include <KDELibs4Support/kmessagebox_queued.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kdiskfreespace.h>
@@ -238,7 +241,7 @@ bool MediaButton::getNameAndIcon(Solid::Device & device, QString &name, KIcon &k
     if (vol && vol->usage() == Solid::StorageVolume::Encrypted) {
         overlays << "security-high";
     }
-    kicon = KIcon(icon, 0, overlays);
+    new KIcon(icon, 0, overlays);
     return true;
 }
 

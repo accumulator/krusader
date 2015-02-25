@@ -164,8 +164,8 @@ void KRQuery::load(KConfigGroup cfg)
     LOAD("InArchive", inArchive);
     LOAD("Recurse", recurse);
     LOAD("FollowLinks", followLinksP);
-    LOAD("WhereToSearch", whereToSearch);
-    LOAD("WhereNotToSearch", whereNotToSearch);
+//     LOAD("WhereToSearch", whereToSearch);
+//     LOAD("WhereNotToSearch", whereNotToSearch);
     LOAD("OrigFilter", origFilter);
 
     codec = QTextCodec::codecForName(cfg.readEntry("Codec", codec->name()));
@@ -209,8 +209,8 @@ void KRQuery::save(KConfigGroup cfg)
     cfg.writeEntry("InArchive", inArchive);
     cfg.writeEntry("Recurse", recurse);
     cfg.writeEntry("FollowLinks", followLinksP);
-    cfg.writeEntry("WhereToSearch", whereToSearch);
-    cfg.writeEntry("WhereNotToSearch", whereNotToSearch);
+//     cfg.writeEntry("WhereToSearch", whereToSearch);
+//     cfg.writeEntry("WhereNotToSearch", whereNotToSearch);
     cfg.writeEntry("OrigFilter", origFilter);
 
     cfg.writeEntry("Codec", codec->name());

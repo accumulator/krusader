@@ -37,6 +37,8 @@
 #include <QtCore/QString>
 #include <QComboBox>
 
+#include <KDE/KGlobal>
+
 class FilterTabs;
 
 class FilterBase

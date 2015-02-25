@@ -20,19 +20,21 @@
 
 #include <QtCore/QEvent>
 #include <QtCore/QRect>
-#include <QtGui/QLayout>
-#include <QtGui/QFrame>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QFrame>
 #include <QtGui/QPainter>
-#include <QtGui/QStyleOption>
-#include <QtGui/QLabel>
+#include <QtWidgets/QStyleOption>
+#include <QtWidgets/QLabel>
 #include <QtGui/QFont>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 #include <QtGui/QImage>
-#include <QtGui/QTimeEdit>
-#include <QtGui/QProgressBar>
+#include <QtWidgets/QTimeEdit>
+#include <QtWidgets/QProgressBar>
 #include <QMouseEvent>
 #include <QKeyEvent>
+#include <QtWidgets/qdrawutil.h>
 
+#include <KDE/KIcon>
 #include <KLocale>
 #include <KGlobalSettings>
 #include <KIconEffect>

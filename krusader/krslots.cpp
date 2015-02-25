@@ -210,7 +210,8 @@ void KRslots::compareContent(KUrl url1, KUrl url2)
         tmp1 = url1.prettyUrl();
         tmp2 = url2.prettyUrl();
     } else {
-        if (!url1.isLocalFile()) {
+	// KF5 TODO delete KIO::NetAccess
+/*        if (!url1.isLocalFile()) {
             if (!KIO::NetAccess::download(url1, tmp1, 0)) {
                 KMessageBox::sorry(krApp, i18n("Krusader is unable to download %1", url1.fileName()));
                 return;
@@ -219,11 +220,11 @@ void KRslots::compareContent(KUrl url1, KUrl url2)
         if (!url2.isLocalFile()) {
             if (!KIO::NetAccess::download(url2, tmp2, 0)) {
                 KMessageBox::sorry(krApp, i18n("Krusader is unable to download %1", url2.fileName()));
-                if (tmp1 != url1.path())
-                    KIO::NetAccess::removeTempFile(tmp1);
+                //if (tmp1 != url1.path())
+                    //KIO::NetAccess::removeTempFile(tmp1);
                 return;
             }
-        } else tmp2 = url2.path();
+        } else tmp2 = url2.path();*/
     }
 
     KrProcess *p = new KrProcess(tmp1 != url1.path() ? tmp1 : QString(),

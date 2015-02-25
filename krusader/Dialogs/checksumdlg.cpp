@@ -23,29 +23,32 @@
 #include "../krglobal.h"
 #include "../GUI/krlistwidget.h"
 #include "../GUI/krtreewidget.h"
-#include <klocale.h>
-#include <kprocess.h>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QCheckBox>
+
+#include <KDE/KLocale>
+#include <KDE/KProcess>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QCheckBox>
 #include <QHBoxLayout>
 #include <QGridLayout>
-#include <klineedit.h>
+#include <KDE/KLineEdit>
 #include <QtGui/QPixmap>
-#include <kcursor.h>
-#include <kmessagebox.h>
+#include <KDE/KCursor>
+#include <KDE/KMessageBox>
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
-#include <kfiledialog.h>
-#include <kiconloader.h>
-#include <kcombobox.h>
+#include <KDE/KIconLoader>
+#include <KDE/KComboBox>
 #include <QtCore/QFileInfo>
-#include <kurlrequester.h>
+
+#include <KDE/KUrl>
+#include <KDE/KFileDialog>
+#include <KDE/KUrlRequester>
 #include "../krservices.h"
 #include <QtCore/QList>
 #include <qmap.h>
-#include <ktemporaryfile.h>
-#include <kstandarddirs.h>
+#include <KDE/KTemporaryFile>
+#include <KDE/KStandardDirs>
 #include <unistd.h> // for usleep
 
 class CS_Tool; // forward
@@ -415,14 +418,14 @@ MatchChecksumDlg::MatchChecksumDlg(const QStringList& files, bool containFolders
     KUrlRequester *checksumFileReq = new KUrlRequester(widget);
     if (!checksumFile.isEmpty())
         checksumFileReq->setUrl(checksumFile);
-    checksumFileReq->fileDialog()->setUrl(path);
+    checksumFileReq->setUrl(path);
     checksumFileReq->setFocus();
     hlayout2->addWidget(checksumFileReq);
     layout->addLayout(hlayout2, row, 0, 1, 2, Qt::AlignLeft);
     setMainWidget(widget);
 
     if (exec() != Accepted) return;
-    QString file = checksumFileReq->url().pathOrUrl();
+    QString file = checksumFileReq->url().toDisplayString();
     QString extension;
     if (!verifyChecksumFile(file, extension)) {
         KMessageBox::error(0, i18n("<qt>Error reading checksum file <i>%1</i>.<br />Please specify a valid checksum file.</qt>", file));
@@ -675,7 +678,7 @@ void ChecksumResultsDlg::accept()
         if (savePerFile())
             KDialog::accept();
     } else if (!_checksumFileSelector->url().isEmpty()) {
-        if (saveChecksum(_data, _checksumFileSelector->url().pathOrUrl()))
+        if (saveChecksum(_data, _checksumFileSelector->url().toDisplayString()))
             KDialog::accept();
     }
 }

@@ -20,7 +20,7 @@
 #define KISOFILE_H
 
 #include <QtCore/QString>
-#include <karchive.h>
+#include <KArchive>
 
 class KIsoFile : public KArchiveFile
 {

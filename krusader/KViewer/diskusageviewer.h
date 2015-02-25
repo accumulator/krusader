@@ -33,8 +33,8 @@
 
 #include "../DiskUsage/diskusage.h"
 #include <kurl.h>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
 #include <QGridLayout>
 
 class DiskUsageViewer : public QWidget

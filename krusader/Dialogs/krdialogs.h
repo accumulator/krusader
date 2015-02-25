@@ -20,15 +20,16 @@
 #ifndef KRDIALOGS_H
 #define KRDIALOGS_H
 
-#include <QtGui/QLineEdit>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtCore/QDateTime>
 #include <QtGui/QPixmap>
-#include <QtGui/QCheckBox>
-#include <QtGui/QComboBox>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 
+#include <KUrl>
 #include <kdialog.h>
 #include <kanimatedbutton.h>
 #include <kurlrequesterdialog.h>

@@ -49,7 +49,7 @@ A
 #include <kstandarddirs.h>
 #include <ktemporaryfile.h>
 #include <kurl.h>
-#include <ktar.h>
+#include <KArchive/KTar>
 #include <krun.h>
 #include <kinputdialog.h>
 #include <kdebug.h>

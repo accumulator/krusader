@@ -31,9 +31,11 @@
 #include "kgdependencies.h"
 #include "../krservices.h"
 #include "../krglobal.h"
-#include <QtGui/QTabWidget>
+#include <QtWidgets/QTabWidget>
 #include <QGridLayout>
 #include <QScrollArea>
+#include <QUrl>
+
 #include <klocale.h>
 #include <kmessagebox.h>
 #include <kurl.h>
@@ -159,7 +161,7 @@ void KgDependencies::slotApply(QObject *obj, QString cls, QString name)
     KonfiguratorURLRequester *urlRequester = (KonfiguratorURLRequester *) obj;
 
     KConfigGroup group(krConfig, cls);
-    group.writeEntry(name, urlRequester->url().pathOrUrl());
+    group.writeEntry(name, urlRequester->url().toDisplayString());
 
     QString usedPath = KrServices::fullPathName(name);
 
@@ -167,10 +169,10 @@ void KgDependencies::slotApply(QObject *obj, QString cls, QString name)
         group.writeEntry(name, usedPath);
         if (usedPath.isEmpty())
             KMessageBox::error(this, i18n("The %1 path is incorrect, no valid path found.",
-                                          urlRequester->url().pathOrUrl()));
+                                          urlRequester->url().toDisplayString()));
         else
             KMessageBox::error(this, i18n("The %1 path is incorrect, %2 used instead.",
-                                          urlRequester->url().pathOrUrl(), usedPath));
+                                          urlRequester->url().toDisplayString(), usedPath));
         urlRequester->setUrl(KUrl(usedPath));
     }
 }

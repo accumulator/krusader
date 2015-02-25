@@ -32,7 +32,7 @@
 #define KURLLISTREQUESTER_H
 
 #include <qwidget.h>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 #include <QKeyEvent>
 
 #include <klineedit.h>

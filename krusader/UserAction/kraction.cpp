@@ -25,14 +25,17 @@
 #include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
 
-#include <QtGui/QBoxLayout>
-#include <QtGui/QLayout>
-#include <QtGui/QSplitter>
-#include <QtGui/QPushButton>
-#include <QtGui/QCheckBox>
-#include <QtGui/QLabel>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QSplitter>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QLabel>
 #include <QtGui/QKeyEvent>
 
+#include <QtXml/QDomElement>
+
+#include <KDE/KIcon>
 #include <KDialog>
 #include <KDebug>
 #include <KLocale>

@@ -20,12 +20,14 @@
 #include "useractionpage.h"
 
 #include <kstandardguiitem.h>
-#include <QtGui/QSplitter>
-#include <QtGui/QLayout>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QSplitter>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QToolButton>
 #include <QtGui/QClipboard>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QDomDocumentType>
+
 #include <klineedit.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>

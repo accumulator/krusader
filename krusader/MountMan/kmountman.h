@@ -44,6 +44,7 @@ A
 #include <kio/global.h>
 #include <kmountpoint.h>
 #include <kurl.h>
+#include <KDE/KSharedPtr>
 
 // krusader includes
 #include <stdlib.h>

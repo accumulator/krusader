@@ -22,8 +22,8 @@
 #include "krbookmarkhandler.h"
 #include <klocale.h>
 #include <qheaderview.h>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
 #include <QGridLayout>
 #include <kinputdialog.h>
 #include <kiconloader.h>

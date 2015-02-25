@@ -32,7 +32,7 @@
 
 #include <time.h>
 
-#include <QtGui/QLayout>
+#include <QtWidgets/QLayout>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QGridLayout>
@@ -41,13 +41,14 @@
 #include <QResizeEvent>
 #include <QEvent>
 #include <QHash>
-#include <QtGui/QPushButton>
-#include <QtGui/QApplication>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QApplication>
 #include <QtGui/QCursor>
 #include <qpixmapcache.h>
-#include <QtGui/QGroupBox>
+#include <QtWidgets/QGroupBox>
 #include <QtCore/QPointer>
 
+#include <KGlobal>
 #include <klocale.h>
 #include <kmenu.h>
 #include <kmimetype.h>

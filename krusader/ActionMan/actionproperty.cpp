@@ -25,9 +25,12 @@
 #include "../krglobal.h"
 
 #include <kactioncollection.h>
-#include <QtGui/QToolButton>
-#include <QtGui/QCheckBox>
-#include <QtGui/QRadioButton>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QRadioButton>
+
+#include <KDE/KIcon>
+#include <KIconThemes/KIconButton>
 #include <klocale.h>
 #include <kfiledialog.h>
 #include <klineedit.h>
@@ -77,7 +80,7 @@ ActionProperty::ActionProperty(QWidget *parent, KrAction *action)
     // track modifications:
     connect(leDistinctName, SIGNAL(textChanged(const QString&)), SLOT(setModified()));
     connect(leTitle, SIGNAL(textChanged(const QString&)), SLOT(setModified()));
-    connect(ButtonIcon, SIGNAL(iconChanged(QString)), SLOT(setModified()));
+//    connect(ButtonIcon, SIGNAL(iconChanged(QString)), SLOT(setModified()));
     connect(cbCategory, SIGNAL(textChanged(const QString&)), SLOT(setModified()));
     connect(leTooltip, SIGNAL(textChanged(const QString&)), SLOT(setModified()));
     connect(textDescription, SIGNAL(textChanged()), SLOT(setModified()));
@@ -135,7 +138,7 @@ void ActionProperty::clear()
 
     chkConfirmExecution->setChecked(false);
 
-    ButtonIcon->resetIcon();
+//    ButtonIcon->resetIcon();
 
     leDifferentUser->clear();
     chkDifferentUser->setChecked(false);
@@ -201,10 +204,10 @@ void ActionProperty::updateGUI(KrAction *action)
 
     chkConfirmExecution->setChecked(_action->confirmExecution());
 
-    if (! _action->icon().isNull())
-        ButtonIcon->setIcon(_action->icon());
-    else
-        ButtonIcon->resetIcon();
+//     if (! _action->icon().isNull())
+//         ButtonIcon->setIcon(_action->icon());
+//     else
+//         ButtonIcon->resetIcon();
 
     leDifferentUser->setText(_action->user());
     if (_action->user().isEmpty())
@@ -292,8 +295,8 @@ void ActionProperty::updateAction(KrAction *action)
 
     _action->setConfirmExecution(chkConfirmExecution->isChecked());
 
-    _action->setIcon(KIcon(ButtonIcon->icon()));
-    _action->setIconName(ButtonIcon->icon());
+//     _action->setIcon(KIcon(ButtonIcon->icon()));
+//     _action->setIconName(ButtonIcon->icon());
 
     _action->setUser(leDifferentUser->text());
 

@@ -27,7 +27,7 @@
 #include <kurl.h>
 #include <klineedit.h>
 #include <qmap.h>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 
 class KrAddBookmarkDlg: public KDialog
 {

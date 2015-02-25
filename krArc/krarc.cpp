@@ -32,6 +32,7 @@
 #include <QByteArray>
 #include <QTextCodec>
 
+#include <KDE/KMimeType>
 #include <kfileitem.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
@@ -132,11 +133,11 @@ extern "C"
     public:
         DummySlave(const QByteArray &pool_socket, const QByteArray &app_socket) :
                 SlaveBase("kio_krarc", pool_socket, app_socket) {
-            error(ERR_SLAVE_DEFINED, "krarc is disabled.");
+            error((int)ERR_SLAVE_DEFINED, QString("krarc is disabled."));
         }
     };
 
-    int KDE_EXPORT kdemain(int argc, char **argv) {
+    int /*KDE_EXPORT*/ kdemain(int argc, char **argv) {
         KComponentData instance("kio_krarc", "krusader");
 
         if (argc != 4) {
@@ -702,7 +703,7 @@ void kio_krarcProtocol::copy(const KUrl &url, const KUrl &dest, int, KIO::JobFla
 
             //the file exists and we don't want to overwrite
             if ((!overwrite) && (QFile(getPath(dest)).exists())) {
-                error(ERR_FILE_ALREADY_EXIST, QFile::encodeName(getPath(dest)));
+                error((int)ERR_FILE_ALREADY_EXIST, QString(QFile::encodeName(getPath(dest))));
                 return;
             };
 
@@ -763,7 +764,8 @@ void kio_krarcProtocol::copy(const KUrl &url, const KUrl &dest, int, KIO::JobFla
     if (!dest.isLocalFile())
         kDebug() << "ERROR:" << url << "is not a local file.";
 
-    error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_COPY));
+    // KF5 TODO commented as removed
+    //error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(mProtocol, CMD_COPY));
 }
 
 void kio_krarcProtocol::listDir(const KUrl& url)
@@ -1440,9 +1442,10 @@ void kio_krarcProtocol::parseLine(int lineNo, QString line)
             for (entryIt = dir->begin(); entryIt != dir->end(); ++entryIt) {
                 if (entryIt->contains(KIO::UDSEntry::UDS_NAME) &&
                         entryIt->stringValue(KIO::UDSEntry::UDS_NAME) == name) {
-                    entryIt->remove(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+		    // KF5 TODO commented as removed
+                    //entryIt->remove(KIO::UDSEntry::UDS_MODIFICATION_TIME);
                     entryIt->insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, time);
-                    entryIt->remove(KIO::UDSEntry::UDS_ACCESS);
+                    //entryIt->remove(KIO::UDSEntry::UDS_ACCESS);
                     entryIt->insert(KIO::UDSEntry::UDS_ACCESS, mode);
                     return;
                 }
@@ -1860,7 +1863,7 @@ void kio_krarcProtocol::invalidatePassword()
     QString fileName = getPath(arcFile->url(), KUrl::RemoveTrailingSlash);
     authInfo.url = KUrl(ROOT_DIR);
     authInfo.url.setHost(fileName /*.replace('/','_')*/);
-    authInfo.url.setProtocol("krarc");
+    authInfo.url.setScheme("krarc");
 
     password.clear();
 
@@ -1885,7 +1888,7 @@ QString kio_krarcProtocol::getPassword()
     QString fileName = getPath(arcFile->url(), KUrl::RemoveTrailingSlash);
     authInfo.url = KUrl(ROOT_DIR);
     authInfo.url.setHost(fileName /*.replace('/','_')*/);
-    authInfo.url.setProtocol("krarc");
+    authInfo.url.setScheme("krarc");
 
     if (checkCachedAuthentication(authInfo) && !authInfo.password.isNull()) {
         KRDEBUG(authInfo.password);

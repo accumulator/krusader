@@ -30,7 +30,7 @@
 
 #include "kgarchives.h"
 
-#include <QtGui/QPushButton>
+#include <QtWidgets/QPushButton>
 #include <QGridLayout>
 #include <QPointer>
 

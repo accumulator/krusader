@@ -34,7 +34,7 @@
 #include <iostream>
 
 #include <QtCore/QEvent>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QTextDocument>
 
 #include <kurl.h>

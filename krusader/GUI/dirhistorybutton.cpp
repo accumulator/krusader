@@ -21,7 +21,7 @@
 #include "../Panel/dirhistoryqueue.h"
 
 #include "../VFS/vfs.h"
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 #include <QtCore/QDir>
 #include <QPixmap>
 #include <klocale.h>

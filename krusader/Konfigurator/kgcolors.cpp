@@ -32,12 +32,14 @@
 #include "../defaults.h"
 #include "../Panel/krcolorcache.h"
 #include <kmessagebox.h>
+
+#include <KDE/KGlobal>
 #include <klocale.h>
 #include <kfiledialog.h>
 #include <kcolorscheme.h>
 #include <kstandarddirs.h>
 #include <qheaderview.h>
-#include <QtGui/QTabWidget>
+#include <QtWidgets/QTabWidget>
 #include <QList>
 #include <QLabel>
 #include <QGridLayout>

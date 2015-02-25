@@ -20,7 +20,7 @@
 #ifndef KRPREVIEWPOPUP_H
 #define KRPREVIEWPOPUP_H
 
-#include <QtGui/QMenu>
+#include <QtWidgets/QMenu>
 #include <QtGui/QPixmap>
 #include <kfileitem.h>
 #include <kurl.h>

@@ -21,6 +21,9 @@
 #include "krbookmarkhandler.h"
 #include "../krglobal.h"
 #include <QtGui/QPixmap>
+#include <QtWidgets/QMenu>
+
+#include <KDE/KIcon>
 #include <kiconloader.h>
 #include <kaction.h>
 #include <klocale.h>
@@ -38,8 +41,9 @@ KrBookmarkButton::KrBookmarkButton(QWidget *parent): QToolButton(parent)
 
     acmBookmarks = new KActionMenu(KIcon("bookmarks"), i18n("Bookmarks"), this);
     acmBookmarks->setDelayed(false);
-    acmBookmarks->menu()->setKeyboardShortcutsEnabled(true);
-    acmBookmarks->menu()->setKeyboardShortcutsExecute(true);
+    // KF5 TODO KMenu->QMenu
+    //acmBookmarks->menu()->setKeyboardShortcutsEnabled(true);
+    //acmBookmarks->menu()->setKeyboardShortcutsExecute(true);
 
     setMenu(acmBookmarks->menu());
     connect(acmBookmarks->menu(), SIGNAL(aboutToShow()), this, SLOT(populate()));

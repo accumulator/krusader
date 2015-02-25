@@ -34,9 +34,11 @@
 #include <klineedit.h>
 #include <QtGui/QPainter>
 #include <QtGui/QPen>
-#include <QtGui/QColorDialog>
+#include <QtWidgets/QColorDialog>
 #include <QPixmap>
 #include <QLabel>
+
+#include <KDE/KIcon>
 #include <kiconloader.h>
 
 KonfiguratorExtension::KonfiguratorExtension(QObject *obj, QString cfgClass, QString cfgName, bool rst, int pg) :
@@ -56,7 +58,8 @@ void KonfiguratorExtension::connectNotify(const char *signal)
     else if (signalString == defaultsString)
         setDefaultsConnected = true;
 
-    QObject::connectNotify(signal);
+    // KF5 TODO removed
+    //QObject::connectNotify(signal);
 }
 
 bool KonfiguratorExtension::apply()
@@ -404,7 +407,7 @@ void KonfiguratorURLRequester::loadInitialValue()
 
 void KonfiguratorURLRequester::slotApply(QObject *, QString cls, QString name)
 {
-    KConfigGroup(krConfig, cls).writeEntry(name, expansion ? url().pathOrUrl() : text());
+    KConfigGroup(krConfig, cls).writeEntry(name, expansion ? url().toDisplayString() : text());
 }
 
 void KonfiguratorURLRequester::slotSetDefaults(QObject *)

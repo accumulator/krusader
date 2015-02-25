@@ -31,7 +31,7 @@
 #ifndef LOCATE_H
 #define LOCATE_H
 
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QCheckBox>
 #include <QtGui/QKeyEvent>
 
 #include <KDialog>

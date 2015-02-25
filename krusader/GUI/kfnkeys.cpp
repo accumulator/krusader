@@ -33,6 +33,7 @@
 #include <QGridLayout>
 #include <QtGui/QFontMetrics>
 
+#include <KDE/KShortcut>
 #include <klocale.h>
 #include <kglobalsettings.h>
 

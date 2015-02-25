@@ -38,7 +38,7 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 #include <QtGui/QPixmap>
 #include <QtCore/QStringList>
 #include <QtCore/QDir>
-#include <QtGui/QPrinter>
+#include <QtPrintSupport/QPrinter>
 #include <qwidget.h>
 #include <QtCore/QDateTime>
 #include <QActionGroup>
@@ -49,6 +49,7 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 #include <QDesktopWidget>
 #include <QtDBus/QtDBus>
 
+#include <KConfigGui/KWindowConfig>
 #include <krandom.h>
 #include <kxmlguifactory.h>
 #include <kactioncollection.h>
@@ -304,7 +305,8 @@ Krusader::Krusader() : KParts::MainWindow(0,
     isStarting = false;
 
     //HACK - used by [ListerTextArea|KrSearchDialog|LocateDlg]:keyPressEvent()
-    KrGlobal::copyShortcut = _listPanelActions->actCopy->shortcut();
+    // KF5 TODO temporary commented
+    //KrGlobal::copyShortcut = _listPanelActions->actCopy->shortcut();
 
     //HACK: make sure the active view becomes focused
     // for some reason sometimes the active view cannot be focused immediately at this point,
@@ -446,19 +448,20 @@ void Krusader::setupActions() {
 ///////////////////////////////////////////////////////////////////////////
 
 void Krusader::savePosition() {
-    KConfigGroup cfg(krConfig, "Private");
-    cfg.writeEntry("Maximized", isMaximized());
-    if (isMaximized())
-        saveWindowSize(krConfig->group("Private"));
+    KConfigGroup *cfg = new KConfigGroup(krConfig, "Private");
+    cfg->writeEntry("Maximized", isMaximized());
+    if (isMaximized()) {}
+	  // KF5 TODO commented  
+        //KWindowConfig::saveWindowSize(this, krConfig->group("Private"), KConfigGroup::Normal);
     else {
-        cfg.writeEntry("Start Position", isMaximized() ? oldPos : pos());
-        cfg.writeEntry("Start Size", isMaximized() ? oldSize : size());
+        cfg->writeEntry("Start Position", isMaximized() ? oldPos : pos());
+        cfg->writeEntry("Start Size", isMaximized() ? oldSize : size());
     }
 
-    cfg = krConfig->group("Startup");
-    MAIN_VIEW->saveSettings(cfg);
+    *cfg = krConfig->group("Startup");
+    MAIN_VIEW->saveSettings(*cfg);
 
-    saveMainWindowSettings(KConfigGroup(&cfg, "MainWindowSettings"));
+    saveMainWindowSettings(*cfg);
 
     krConfig->sync();
 }

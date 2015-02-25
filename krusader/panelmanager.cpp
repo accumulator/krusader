@@ -28,7 +28,7 @@
 #include "Panel/krviewfactory.h"
 
 #include <qstackedwidget.h>
-#include <QtGui/QToolButton>
+#include <QtWidgets/QToolButton>
 #include <QGridLayout>
 #include <QtGui/QImage>
 

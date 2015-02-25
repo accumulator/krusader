@@ -20,6 +20,8 @@
 #include "krbookmark.h"
 #include "../krglobal.h"
 #include "../VFS/krarchandler.h"
+
+#include <KIcon>
 #include <kactioncollection.h>
 #include <kiconloader.h>
 #include <klocale.h>

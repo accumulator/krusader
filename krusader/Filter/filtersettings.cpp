@@ -33,6 +33,7 @@
 
 #include "../krglobal.h"
 
+#include <KDE/KGlobal>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kcharsets.h>

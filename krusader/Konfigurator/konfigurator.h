@@ -39,6 +39,8 @@
 #include <kpagedialog.h>
 #include <QtCore/QTimer>
 
+#include <KDE/KIcon>
+
 class QString;
 class QResizeEvent;
 class QCloseEvent;
@@ -72,6 +74,7 @@ protected slots:
     void slotRestorePage();
 
 private:
+    KDialog                    *dialog;
     QList<KPageWidgetItem*>     kgPages;
     bool                        firstTime;
     KPageWidgetItem            *lastPage;

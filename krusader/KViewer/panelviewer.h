@@ -22,8 +22,8 @@
 
 #include <QtCore/QHash>
 #include <QtCore/QString>
-#include <QtGui/QLabel>
-#include <QtGui/QStackedWidget>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QStackedWidget>
 
 #include <kurl.h>
 #include <kparts/part.h>

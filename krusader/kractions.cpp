@@ -37,6 +37,8 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 #include <ktoolbarpopupaction.h>
 #include <QMenu>
 
+#include <KDE/KIcon>
+
 #include "defaults.h"
 #include "krusader.h"
 #include "krusaderview.h"
@@ -52,7 +54,7 @@ KAction *KrActions::actCompare = 0;
 KAction *KrActions::actDiskUsage = 0;
 KAction *KrActions::actQueueManager = 0;
 KAction *KrActions::actHomeTerminal = 0;
-KAction *KrActions::actRemoteEncoding = 0;
+QAction *KrActions::actRemoteEncoding = 0;
 KAction *KrActions::actProfiles = 0;
 KAction *KrActions::actMultiRename = 0;
 KAction *KrActions::actMountMan = 0;
@@ -72,7 +74,7 @@ KAction *KrActions::actOpenRightBm = 0;
 KAction *KrActions::actCmdlinePopup = 0;
 KAction *KrActions::actSplit = 0;
 KAction *KrActions::actCombine = 0;
-KAction *KrActions::actUserMenu = 0;
+QAction *KrActions::actUserMenu = 0;
 KAction *KrActions::actManageUseractions = 0;
 #ifdef ENABLE_SYNCHRONIZER
 KAction *KrActions::actSyncDirs = 0;

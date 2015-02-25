@@ -19,17 +19,18 @@
 
 #include "krdialogs.h"
 
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMessageBox>
 #include <qwidget.h>
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QFontMetrics>
 #include <QFrame>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QtCore/QDir>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QCheckBox>
 #include <QKeyEvent>
 
+#include <KDE/KStandardGuiItem>
 #include <klocale.h>
 #include <kurlcompletion.h>
 #include <kapplication.h>

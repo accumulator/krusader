@@ -36,6 +36,7 @@
 #include <QEvent>
 #include <QtGui/QClipboard>
 
+#include <KIcon>
 #include <kstatusbar.h>
 #include <kmenubar.h>
 #include <kshortcut.h>

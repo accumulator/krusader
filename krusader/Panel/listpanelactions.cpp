@@ -38,6 +38,7 @@ YP   YD 88   YD ~Y8888P' `8888Y' YP   YP Y8888D' Y88888P 88   YD
 #include "../Dialogs/krdialogs.h"
 #include "../KViewer/krviewer.h"
 
+#include <KDE/KIcon>
 #include <QSignalMapper>
 #include <QActionGroup>
 #include <klocale.h>

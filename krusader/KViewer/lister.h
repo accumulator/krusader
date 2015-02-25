@@ -34,7 +34,7 @@
 #include <QtCore/QList>
 #include <QtCore/QTimer>
 #include <QtGui/QColor>
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 #include <KLineEdit>
 #include <KParts/BrowserExtension>

@@ -22,6 +22,8 @@
 #include <ksharedconfig.h>
 #include <kconfiggroup.h>
 
+#include <QtGui/QFont>
+
 bool Config::varyLabelFontSizes = true;
 bool Config::showSmallFiles = false;
 uint Config::contrast = 50;

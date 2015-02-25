@@ -31,8 +31,9 @@
 #ifndef SPLITTERGUI_H
 #define SPLITTERGUI_H
 
-#include <QtGui/QDialog>
+#include <QtWidgets/QDialog>
 
+#include <KDE/KUrl>
 #include <kurlrequester.h>
 #include <kio/global.h>
 
@@ -65,7 +66,7 @@ public:
     ~SplitterGUI();
 
     KUrl    getDestinationDir()     {
-        return KUrl(urlReq->url().prettyUrl()); /* TODO: is prettyUrl what we need? */
+        return KUrl(urlReq->url().toDisplayString()); /* TODO: is prettyUrl what we need? */
     }
     KIO::filesize_t getSplitSize();
     int     result()                {

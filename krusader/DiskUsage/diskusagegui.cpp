@@ -32,9 +32,9 @@
 
 #include <QtCore/QTimer>
 #include <QtGui/QResizeEvent>
-#include <QtGui/QGridLayout>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 
 #include <klocale.h>
 

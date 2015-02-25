@@ -32,9 +32,11 @@
 #include "../VFS/vfs.h"
 #include <QtGui/QPixmap>
 #include <QtGui/QCursor>
-#include <QtGui/QLayout>
+#include <QtWidgets/QLayout>
 #include <QGridLayout>
 #include <QKeyEvent>
+
+#include <KIcon>
 #include <kfiledialog.h>
 #include <kmenu.h>
 #include <kiconloader.h>

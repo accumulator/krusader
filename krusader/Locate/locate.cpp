@@ -48,8 +48,8 @@
 #include <kshell.h>
 #include <kprocess.h>
 #include <kfileitem.h>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
 #include <QtGui/QFontMetrics>
 #include <qtreewidget.h>
 #include <qheaderview.h>

@@ -38,6 +38,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QRegExp>
 
+#include <QtWidgets/QApplication>
 #include <kde_file.h>
 #include <KLocale>
 #include <KMimeType>

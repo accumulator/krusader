@@ -44,11 +44,14 @@ A
 #include <kmenu.h>
 #include <QtGui/QBitmap>
 #include <kmessagebox.h>
-#include <QtGui/QLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QCheckBox>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QCheckBox>
 #include <kdiskfreespace.h>
 #include <QtGui/QCursor>
+
+#include <KDE/KIcon>
+#include <KDE/KMD5>
 #include <kdebug.h>
 #include <kguiitem.h>
 #include <QtCore/QFileInfo>
