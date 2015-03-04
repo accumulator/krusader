@@ -36,7 +36,7 @@
 #include "konfiguratorpage.h"
 #include <qwidget.h>
 #include <kdialog.h>
-#include <kpagedialog.h>
+#include <KF5/KWidgetsAddons/KPageDialog>
 #include <QtCore/QTimer>
 
 #include <KDE/KIcon>
@@ -65,16 +65,15 @@ protected:
     void closeDialog();
 
     virtual void resizeEvent(QResizeEvent *e);
-    virtual void slotButtonClicked(int button);
     virtual void closeEvent(QCloseEvent *event);
 
 protected slots:
     void slotApplyEnable();
     bool slotPageSwitch(KPageWidgetItem *, KPageWidgetItem *);
     void slotRestorePage();
+    void slotButtonClicked(QAbstractButton *button);
 
 private:
-    KDialog                    *dialog;
     QList<KPageWidgetItem*>     kgPages;
     bool                        firstTime;
     KPageWidgetItem            *lastPage;

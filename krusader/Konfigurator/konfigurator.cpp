@@ -46,7 +46,6 @@
 #include "../defaults.h"
 #include "../krusaderview.h"
 #include "../GUI/kfnkeys.h"
-#include <KDE/KDialog>
 
 // the frames
 #include "kgwelcome.h"
@@ -64,16 +63,24 @@
 Konfigurator::Konfigurator(bool f, int startPage) : KPageDialog((QWidget *)0),
         firstTime(f), internalCall(false), sizeX(-1), sizeY(-1)
 {
-    dialog = new KDialog( this );
-    dialog->setButtons(KDialog::Help | KDialog::Default | KDialog::Reset | KDialog::Apply | KDialog::Close);
-    dialog->setDefaultButton(KDialog::Apply);
-    dialog->setWindowTitle(i18n("Konfigurator"));
-    dialog->setWindowModality(Qt::WindowModal);
+    setStandardButtons(QDialogButtonBox::Help
+                       | QDialogButtonBox::RestoreDefaults
+                       | QDialogButtonBox::Reset
+                       | QDialogButtonBox::Apply
+                       | QDialogButtonBox::Close);
+    // KF5 TODO
+    //setDefaultButton(KDialog::Apply);
+    button(QDialogButtonBox::Apply)->setDefault(true);
 
-    dialog->setPlainCaption(i18n("Konfigurator - Creating Your Own Krusader"));
+    connect(buttonBox(), SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
+
+    setWindowTitle(i18n("Konfigurator - Creating Your Own Krusader"));
+    setWindowModality(Qt::WindowModal);
+
     setFaceType(KPageDialog::List);
 
-    dialog->setHelp("konfigurator");
+    // KF5 TODO
+    //setHelp("konfigurator");
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)), this, SLOT(slotPageSwitch(KPageWidgetItem *, KPageWidgetItem *)));
     connect(&restoreTimer, SIGNAL(timeout()), this, SLOT(slotRestorePage()));
@@ -102,8 +109,7 @@ void Konfigurator::resizeEvent(QResizeEvent *e)
         sizeY = e->size().height();
     }
 
-    // KF5 TODO
-    //KDialog::resizeEvent(e);
+    QDialog::resizeEvent(e);
 }
 
 void Konfigurator::closeDialog()
@@ -118,15 +124,13 @@ void Konfigurator::closeDialog()
 void Konfigurator::reject()
 {
     closeDialog();
-    // KF5 TODO
-    //KDialog::reject();
+    QDialog::reject();
 }
 
 void Konfigurator::accept()
 {
     closeDialog();
-    // KF5 TODO
-    //KDialog::accept();
+    QDialog::accept();
 }
 
 void Konfigurator::newPage(KonfiguratorPage *page, const QString &name, const QString &desc, const KIcon &kicon)
@@ -179,35 +183,36 @@ void Konfigurator::closeEvent(QCloseEvent *event)
         event->ignore();
 }
 
-void Konfigurator::slotButtonClicked(int button)
+void Konfigurator::slotButtonClicked(QAbstractButton *button)
 {
-    switch(button) {
-    case KDialog::Apply:
+    QDialogButtonBox::StandardButton standardButton = buttonBox()->standardButton(button);
+    switch(standardButton) {
+    case QDialogButtonBox::Apply:
         emit configChanged(((KonfiguratorPage*)(currentPage()->widget()))->apply());
         break;
-    case KDialog::Close:
+    case QDialogButtonBox::Close:
         lastPage = currentPage();
         if (slotPageSwitch(lastPage, lastPage))
             reject();
         break;
-    case KDialog::Default:
+    case QDialogButtonBox::RestoreDefaults:
         ((KonfiguratorPage *)(currentPage()->widget()))->setDefaults();
         break;
-    case KDialog::Reset:
+    case QDialogButtonBox::Reset:
 	((KonfiguratorPage *)(currentPage()->widget()))->loadInitialValues();
 	break;
     default:
-            // KF5 TODO
-    //KDialog::slotButtonClicked(button);
-	    break;
+      //KF5 TODO
+      //KPageDialog::slotButtonClicked(button);
+      ;
     }
 }
 
 void Konfigurator::slotApplyEnable()
 {
     lastPage = currentPage();
-    dialog->enableButtonApply(((KonfiguratorPage *)(lastPage->widget()))->isChanged());
-    dialog->enableButton(KDialog::Reset, ((KonfiguratorPage *)(lastPage->widget()))->isChanged());
+    button(QDialogButtonBox::Apply)->setEnabled(((KonfiguratorPage *)(lastPage->widget()))->isChanged());
+    button(QDialogButtonBox::Reset)->setEnabled(((KonfiguratorPage *)(lastPage->widget()))->isChanged());
 }
 
 bool Konfigurator::slotPageSwitch(KPageWidgetItem *current, KPageWidgetItem *before)
@@ -240,7 +245,7 @@ bool Konfigurator::slotPageSwitch(KPageWidgetItem *current, KPageWidgetItem *bef
         }
     }
 
-    dialog->enableButtonApply(currentPg->isChanged());
+    button(QDialogButtonBox::Apply)->setEnabled(currentPg->isChanged());
     lastPage = current;
     return true;
 }
