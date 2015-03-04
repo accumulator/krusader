@@ -137,9 +137,6 @@ int main(int argc, char *argv[])
 			 i18n("Feedback:\nhttp://www.krusader.org/phpBB/\n\nIRC\nserver: irc.freenode.net, channel: #krusader"),
 			 QStringLiteral("http://www.krusader.org"));
 
-    // KF5 TODO change to QApplication::setWindowIcon
-    aboutData.setProgramIconName(Krusader::privIcon());
-
     aboutData.addAuthor(i18n("Rafi Yanai"), i18n("Author (retired)"), QStringLiteral("yanai@users.sourceforge.net"));
     aboutData.addAuthor(i18n("Shie Erlich"), i18n("Author (retired)"), QStringLiteral("erlich@users.sourceforge.net"));
     aboutData.addAuthor(i18n("Jan Lepper"), i18n("Developer"), QStringLiteral("jan_lepper@gmx.de"), 0);
@@ -225,6 +222,9 @@ int main(int argc, char *argv[])
 
     // create the application
     KrusaderApp app;
+
+    // set application icon
+    QApplication::setWindowIcon(QIcon::fromTheme(QString::fromLatin1(Krusader::privIcon())));
 
     KConfigGroup cfg(KGlobal::config().data(), "Look&Feel");
     bool singleInstanceMode = cfg.readEntry("Single Instance Mode", _SingleInstanceMode);
