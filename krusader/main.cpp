@@ -42,7 +42,7 @@
 #include <kde_file.h>
 #include <KCmdLineArgs>
 #include <KGlobal>
-#include <K4AboutData>
+#include <KAboutData>
 #include <KActionMenu>
 #include <KLocale>
 #include <KStandardDirs>
@@ -222,6 +222,9 @@ int main(int argc, char *argv[])
 
     // create the application
     KrusaderApp app;
+
+    // register about data
+    KAboutData::setApplicationData(aboutData);
 
     // set application icon
     QApplication::setWindowIcon(QIcon::fromTheme(QString::fromLatin1(Krusader::privIcon())));
