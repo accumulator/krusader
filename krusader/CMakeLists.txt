@@ -122,10 +122,7 @@ install(TARGETS krusader ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS krusader.desktop
               krusader_root-mode.desktop
         DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install(FILES krusaderui.rc
-              krusaderlisterui.rc
-              krviewer.rc
-              midnight_commander.color
+install(FILES midnight_commander.color
               total_commander.color
               total_commander.keymap
               total_commander.keymap.info
@@ -133,6 +130,11 @@ install(FILES krusaderui.rc
               layout.xml
               splash.png
         DESTINATION ${DATA_INSTALL_DIR}/krusader)
+        
+install(FILES krusaderui.rc
+              krusaderlisterui.rc
+              krviewer.rc
+        DESTINATION ${KXMLGUI_INSTALL_DIR}/krusader)
 
 # TODO KF5 port (change to ecm_install_icons)
 #kde4_install_icons( ${ICON_INSTALL_DIR} )
