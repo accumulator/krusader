@@ -35,10 +35,12 @@
 #include "../Dialogs/krdialogs.h"
 #include "../kicons.h"
 
-#include <kfiledialog.h>
-#include <qwidget.h>
 #include <QPixmap>
 #include <QResizeEvent>
+#include <QtCore/QEvent>
+#include <QDesktopServices>
+#include <kfiledialog.h>
+#include <qwidget.h>
 #include <klocale.h>
 #include <kglobal.h>
 #include <kstandarddirs.h>
@@ -58,7 +60,6 @@
 #include "kgcolors.h"
 #include "kguseractions.h"
 #include "kgprotocols.h"
-#include <QtCore/QEvent>
 
 Konfigurator::Konfigurator(bool f, int startPage) : KPageDialog((QWidget *)0),
         firstTime(f), internalCall(false), sizeX(-1), sizeY(-1)
@@ -68,8 +69,6 @@ Konfigurator::Konfigurator(bool f, int startPage) : KPageDialog((QWidget *)0),
                        | QDialogButtonBox::Reset
                        | QDialogButtonBox::Apply
                        | QDialogButtonBox::Close);
-    // KF5 TODO
-    //setDefaultButton(KDialog::Apply);
     button(QDialogButtonBox::Apply)->setDefault(true);
 
     connect(buttonBox(), SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
@@ -78,9 +77,6 @@ Konfigurator::Konfigurator(bool f, int startPage) : KPageDialog((QWidget *)0),
     setWindowModality(Qt::WindowModal);
 
     setFaceType(KPageDialog::List);
-
-    // KF5 TODO
-    //setHelp("konfigurator");
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)), this, SLOT(slotPageSwitch(KPageWidgetItem *, KPageWidgetItem *)));
     connect(&restoreTimer, SIGNAL(timeout()), this, SLOT(slotRestorePage()));
@@ -199,12 +195,11 @@ void Konfigurator::slotButtonClicked(QAbstractButton *button)
         ((KonfiguratorPage *)(currentPage()->widget()))->setDefaults();
         break;
     case QDialogButtonBox::Reset:
-	((KonfiguratorPage *)(currentPage()->widget()))->loadInitialValues();
-	break;
-    default:
-      //KF5 TODO
-      //KPageDialog::slotButtonClicked(button);
-      ;
+        ((KonfiguratorPage *)(currentPage()->widget()))->loadInitialValues();
+        break;
+    case QDialogButtonBox::Help:
+        QDesktopServices::openUrl(QUrl(QStringLiteral("help:/krusader/konfigurator.html")));
+        break;
     }
 }
 
